@@ -1,0 +1,73 @@
+.option {
+    height: 130px;
+    width: 130px;
+    border: 10px solid;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: var(--light-background);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    --scissors-gradient: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    --paper-gradient: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    --rock-gradient: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    --lizard-gradient: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+    --spock-gradient: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+}
+
+.option .option-icon {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.option-scissors {
+    background:
+        linear-gradient(var(--light-background), var(--light-background)) padding-box,
+        var(--scissors-gradient) border-box;
+}
+
+.option-scissors .option-icon {
+    background-image: url('./../images/icon-scissors.svg');
+}
+
+.option-paper {
+    background:
+        linear-gradient(var(--light-background), var(--light-background)) padding-box,
+        var(--paper-gradient) border-box;
+}
+
+.option-paper .option-icon {
+    background-image: url('./../images/icon-paper.svg');
+}
+
+.option-rock {
+    background:
+        linear-gradient(var(--light-background), var(--light-background)) padding-box,
+        var(--rock-gradient) border-box;
+}
+
+.option-rock .option-icon {
+    background-image: url('./../images/icon-rock.svg');
+}
+
+.option-lizard {
+    background:
+        linear-gradient(var(--light-background), var(--light-background)) padding-box,
+        var(--lizard-gradient) border-box;
+}
+
+.option-lizard .option-icon {
+    background-image: url('./../images/icon-lizard.svg');
+}
+
+.option-spock {
+    background:
+        linear-gradient(var(--light-background), var(--light-background)) padding-box,
+        var(--spock-gradient) border-box;
+}
+
+.option-spock .option-icon {
+    background-image: url('./../images/icon-spock.svg');
+}
