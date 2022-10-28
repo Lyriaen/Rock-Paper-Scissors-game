@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+:root {
+    --dark-text-color: hsl(229, 25%, 31%);
+    --score-text-color: hsl(229, 64%, 46%);
+    --header-outline-color: hsl(217, 16%, 45%);
+
+    --light-background: hsla(360, 0%, 92%, 1);
+    --background: hsl(214, 47%, 23%) to hsl(237, 49%, 15%);
+
+    --scissors-gradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%);
+    --paper-gradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%);
+    --rock-gradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%);
+    --lizard-gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);
+    --cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 700;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(ellipse at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.header {
+    margin: 20px auto;
+    padding: 20px;
+    border: 3px solid var(--header-outline-color);
+    border-radius: 15px;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    max-width: 800px;
+}
+
+.header_score-container {
+    background-color: var(--light-background);
+    width: 120px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 2px 0px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_score-container_heading {
+    color: var(--score-text-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+.header_score-container_score {
+    color: var(--dark-text-color);
+    font-size: 48px;
+}
