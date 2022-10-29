@@ -75,8 +75,12 @@ body {
     /* background-color: aliceblue; */
 }
 
-.main_optionsContainer_backgroundImage {
-    width: 350px;
+.basic-version.main_optionsContainer_backgroundImage {
+    width: 200px;
+}
+
+.bonus-version.main_optionsContainer_backgroundImage {
+    width: 300px;
 }
 
 .main_button-container {

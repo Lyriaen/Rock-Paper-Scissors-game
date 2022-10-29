@@ -1,6 +1,4 @@
 .option {
-    height: 150px;
-    width: 150px;
     border: 15px solid;
     border-radius: 50%;
     border-color: transparent;
@@ -23,13 +21,28 @@
     --spock-shadow: hsl(194, 59%, 43%);
 }
 
-.option .option-icon {
+.basic-version.option {
+    height: 150px;
+    width: 150px;
+}
+
+.bonus-version.option {
+    height: 130px;
+    width: 130px;
+}
+
+.iconContainer {
     width: 100%;
     height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
     border-radius: 50%;
-    box-shadow: inset 0px 7px 0 hsl(312, 4%, 76%)
+    box-shadow: inset 0px 7px 0 hsl(312, 4%, 76%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.option-icon {
+    height: 50%;
 }
 
 .option-scissors {
@@ -39,19 +52,11 @@
     box-shadow: 0px 4px var(--scissors-shadow);
 }
 
-.option-scissors .option-icon {
-    background-image: url('./../images/icon-scissors.svg');
-}
-
 .option-paper {
     background:
         linear-gradient(var(--light-background), var(--light-background)) padding-box,
         var(--paper-gradient) border-box;
     box-shadow: 0px 7px 0 var(--paper-shadow);
-}
-
-.option-paper .option-icon {
-    background-image: url('./../images/icon-paper.svg');
 }
 
 .option-rock {
@@ -61,10 +66,6 @@
     box-shadow: 0px 7px 0 var(--rock-shadow);
 }
 
-.option-rock .option-icon {
-    background-image: url('./../images/icon-rock.svg');
-}
-
 .option-lizard {
     background:
         linear-gradient(var(--light-background), var(--light-background)) padding-box,
@@ -72,17 +73,9 @@
     box-shadow: 0px 7px 0 var(--lizard-shadow);
 }
 
-.option-lizard .option-icon {
-    background-image: url('./../images/icon-lizard.svg');
-}
-
 .option-spock {
     background:
         linear-gradient(var(--light-background), var(--light-background)) padding-box,
         var(--spock-gradient) border-box;
     box-shadow: 0px 7px 0 var(--spock-shadow);
-}
-
-.option-spock .option-icon {
-    background-image: url('./../images/icon-spock.svg');
 }
