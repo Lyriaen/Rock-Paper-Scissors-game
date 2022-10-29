@@ -62,7 +62,21 @@ body {
 
 .main {
     flex-grow: 1;
+    /* align-self: center; */
     padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_optionsContainer {
+    text-align: center;
+    position: relative;
+    /* background-color: aliceblue; */
+}
+
+.main_optionsContainer_backgroundImage {
+    width: 200px;
 }
 
 .main_button-container {

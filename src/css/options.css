@@ -1,23 +1,23 @@
 .option {
-    height: 130px;
-    width: 130px;
-    border: 10px solid;
+    height: 150px;
+    width: 150px;
+    border: 15px solid;
     border-radius: 50%;
     border-color: transparent;
     background-color: var(--light-background);
     background-repeat: no-repeat;
     background-position: center;
-    margin: 20px;
+    position: absolute;
 
-    --scissors-gradient: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    --scissors-gradient: linear-gradient(to top, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
     --scissors-shadow: hsl(29, 81%, 44%);
-    --paper-gradient: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    --paper-gradient: linear-gradient(to top, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
     --paper-shadow: hsl(228, 64%, 45%);
-    --rock-gradient: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    --rock-gradient: linear-gradient(to top, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
     --rock-shadow: hsl(348, 77%, 35%);
-    --lizard-gradient: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+    --lizard-gradient: linear-gradient(to top, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
     --lizard-shadow: hsl(261, 52%, 45%);
-    --spock-gradient: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+    --spock-gradient: linear-gradient(to top, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
     --spock-shadow: hsl(194, 59%, 43%);
 }
 
@@ -27,7 +27,7 @@
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 50%;
-    box-shadow: inset 0px 4px 0 hsl(312, 4%, 76%)
+    box-shadow: inset 0px 7px 0 hsl(312, 4%, 76%)
 }
 
 .option-scissors {
@@ -35,6 +35,8 @@
         linear-gradient(var(--light-background), var(--light-background)) padding-box,
         var(--scissors-gradient) border-box;
     box-shadow: 0px 4px var(--scissors-shadow);
+    top: 0;
+    transform: translate(-50%, -50%);
 }
 
 .option-scissors .option-icon {
@@ -45,7 +47,10 @@
     background:
         linear-gradient(var(--light-background), var(--light-background)) padding-box,
         var(--paper-gradient) border-box;
-    box-shadow: 0px 4px 0 var(--paper-shadow);
+    box-shadow: 0px 7px 0 var(--paper-shadow);
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
 }
 
 .option-paper .option-icon {
@@ -56,7 +61,10 @@
     background:
         linear-gradient(var(--light-background), var(--light-background)) padding-box,
         var(--rock-gradient) border-box;
-    box-shadow: 0px 4px 0 var(--rock-shadow);
+    box-shadow: 0px 7px 0 var(--rock-shadow);
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
 }
 
 .option-rock .option-icon {
@@ -67,7 +75,7 @@
     background:
         linear-gradient(var(--light-background), var(--light-background)) padding-box,
         var(--lizard-gradient) border-box;
-    box-shadow: 0px 4px 0 var(--lizard-shadow);
+    box-shadow: 0px 7px 0 var(--lizard-shadow);
 }
 
 .option-lizard .option-icon {
@@ -78,7 +86,7 @@
     background:
         linear-gradient(var(--light-background), var(--light-background)) padding-box,
         var(--spock-gradient) border-box;
-    box-shadow: 0px 4px 0 var(--spock-shadow);
+    box-shadow: 0px 7px 0 var(--spock-shadow);
 }
 
 .option-spock .option-icon {

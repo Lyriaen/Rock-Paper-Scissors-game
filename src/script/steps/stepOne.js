@@ -9,10 +9,17 @@ export const createStepOneView = (version) => {
 
 const createOptionsElement = (options) => {
     const mainElement = document.querySelector('.main')
+    const optionsContainerElement = document.createElement('section')
+    optionsContainerElement.classList.add('main_optionsContainer')
+    const backgroundImage = document.createElement('img')
+    backgroundImage.src = './src/images/bg-triangle.svg'
+    backgroundImage.classList.add('main_optionsContainer_backgroundImage')
+    optionsContainerElement.append(backgroundImage)
     for (const [option, icon] of Object.entries(options)) {
         const newOptionElement = createOptionElement(option, icon)
-        mainElement.append(newOptionElement)
+        optionsContainerElement.append(newOptionElement)
     }
+    mainElement.append(optionsContainerElement)
 }
 
 const createOptionElement = (option, icon) => {
