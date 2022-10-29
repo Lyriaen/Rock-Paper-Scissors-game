@@ -5,9 +5,7 @@
     background-color: var(--light-background);
     background-repeat: no-repeat;
     background-position: center;
-    position: absolute;
-    /* opacity: 10%; */
-    transform: translate(-50%, -50%);
+
 
     --scissors-gradient: linear-gradient(to top, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
     --scissors-shadow: hsl(29, 81%, 44%);
@@ -21,6 +19,12 @@
     --spock-shadow: hsl(194, 59%, 43%);
 }
 
+.basic-version.option,
+.bonus-version.option {
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
 .basic-version.option {
     height: 150px;
     width: 150px;
@@ -29,6 +33,12 @@
 .bonus-version.option {
     height: 130px;
     width: 130px;
+}
+
+.selectedOption {
+    height: 200px;
+    width: 200px;
+    border-width: 25px;
 }
 
 .iconContainer {

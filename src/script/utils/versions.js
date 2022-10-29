@@ -1,5 +1,5 @@
 export const basicVersion = {
-    name: 'basic',
+    versionName: 'basic',
     rules: 'image-rules.svg',
     options: {
         rock: {
@@ -15,12 +15,12 @@ export const basicVersion = {
             left: 100,
         }
     },
-    backgroundImage: 'bg-triangle.svg'
+    backgroundImageName: 'bg-triangle.svg'
 }
 
 
 export const bonusVersion = {
-    name: 'bonus',
+    versionName: 'bonus',
     rules: 'image-rules-bonus.svg',
     options: {
         rock: {
@@ -44,5 +44,5 @@ export const bonusVersion = {
             left: 3,
         }
     },
-    backgroundImage: 'bg-pentagon.svg'
+    backgroundImageName: 'bg-pentagon.svg'
 }
