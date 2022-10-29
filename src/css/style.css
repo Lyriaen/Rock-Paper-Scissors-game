@@ -80,6 +80,10 @@ body {
 }
 
 .main_button-container {
+    align-self: flex-start;
+}
+
+.main_button-container_version {
     display: flex;
     justify-content: center;
 }

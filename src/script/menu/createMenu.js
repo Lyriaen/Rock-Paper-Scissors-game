@@ -2,28 +2,33 @@ import { addMenuEventListeners } from "./menuEventListeners.js"
 
 export const createMenu = () => {
     const mainElement = document.querySelector('.main')
-    const firstButtonContainer = createButtonContainer('Basic')
-    mainElement.append(firstButtonContainer)
-    const secondButtonContainer = createButtonContainer('Bonus')
-    mainElement.append(secondButtonContainer)
+    const buttonContainer = document.createElement('section')
+    buttonContainer.classList.add('main_button-container')
+
+    const firstVersionButtonContainer = createVersionButtonContainer('Basic')
+    buttonContainer.append(firstVersionButtonContainer)
+    const secondVersionButtonContainer = createVersionButtonContainer('Bonus')
+    buttonContainer.append(secondVersionButtonContainer)
+
+    mainElement.append(buttonContainer)
     addMenuEventListeners();
 }
 
-const createButtonContainer = (version) => {
-    const buttonContainer = document.createElement('div')
-    buttonContainer.classList.add('main_button-container')
+const createVersionButtonContainer = (version) => {
+    const versionContainer = document.createElement('div')
+    versionContainer.classList.add('main_button-container_version')
 
     const gameVersionButton = document.createElement('button')
     gameVersionButton.classList.add('button', 'primary-button', 'menu-button')
     gameVersionButton.textContent = 'Play ' + version + ' version'
     gameVersionButton.id = 'start' + version + 'VersionButton'
-    buttonContainer.append(gameVersionButton)
+    versionContainer.append(gameVersionButton)
 
     const rulesButton = document.createElement('button')
     rulesButton.classList.add('button', 'secondary-button')
     rulesButton.textContent = 'rules'
     rulesButton.id = version.toLowerCase() + 'VersionRulesButton'
-    buttonContainer.append(rulesButton)
+    versionContainer.append(rulesButton)
 
-    return buttonContainer
+    return versionContainer
 }
