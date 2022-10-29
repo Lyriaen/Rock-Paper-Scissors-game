@@ -23,11 +23,26 @@ export const bonusVersion = {
     name: 'bonus',
     rules: 'image-rules-bonus.svg',
     options: {
-        rock: 'icon-rock.svg',
-        paper: 'icon-paper.svg',
-        scissors: 'icon-scissors.svg',
-        lizard: 'icon-lizard.svg',
-        spock: 'icon-spock.svg'
+        rock: {
+            top: 95,
+            left: 80
+        },
+        paper: {
+            top: 35,
+            left: 97
+        },
+        scissors: {
+            top: 0,
+            left: 50,
+        },
+        lizard: {
+            top: 95,
+            left: 20,
+        },
+        spock: {
+            top: 35,
+            left: 3,
+        }
     },
     backgroundImage: 'bg-pentagon.svg'
 }
