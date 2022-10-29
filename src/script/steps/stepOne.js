@@ -4,15 +4,15 @@ export const createStepOneView = (version) => {
     showFooter()
     clearMainWindow()
     const gameVersion = version.name
-    createOptionsElement(version.options)
+    createOptionsElement(version.options, version.backgroundImage)
 }
 
-const createOptionsElement = (options) => {
+const createOptionsElement = (options, backgroundImageName) => {
     const mainElement = document.querySelector('.main')
     const optionsContainerElement = document.createElement('section')
     optionsContainerElement.classList.add('main_optionsContainer')
     const backgroundImage = document.createElement('img')
-    backgroundImage.src = './src/images/bg-triangle.svg'
+    backgroundImage.src = `./src/images/${backgroundImageName}`
     backgroundImage.classList.add('main_optionsContainer_backgroundImage')
     optionsContainerElement.append(backgroundImage)
     for (const [option, position] of Object.entries(options)) {

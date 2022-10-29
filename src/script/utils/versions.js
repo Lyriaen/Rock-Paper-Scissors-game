@@ -5,8 +5,7 @@ export const basicVersion = {
         rock: {
             top: 100,
             left: 50
-        }
-        ,
+        },
         paper: {
             top: 0,
             left: 0
@@ -16,7 +15,7 @@ export const basicVersion = {
             left: 100,
         }
     },
-    background: 'bg-triangle.svg'
+    backgroundImage: 'bg-triangle.svg'
 }
 
 
@@ -30,5 +29,5 @@ export const bonusVersion = {
         lizard: 'icon-lizard.svg',
         spock: 'icon-spock.svg'
     },
-    background: 'bg-pentagon.svg'
+    backgroundImage: 'bg-pentagon.svg'
 }
