@@ -75,6 +75,10 @@ body {
     /* background-color: aliceblue; */
 }
 
+.boards-container {
+    display: flex;
+}
+
 .basic-version.main_optionsContainer_backgroundImage {
     width: 200px;
 }

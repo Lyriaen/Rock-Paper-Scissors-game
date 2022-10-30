@@ -24,11 +24,23 @@ export const createChoiseBoard = (option, user) => {
     const boardHeader = document.createElement('h2')
     boardHeader.textContent = user === 'user' ? 'you picked' : 'the house picked'
 
-    const optionElement = createOptionElement(option)
-    optionElement.classList.add('selectedOption')
+    const optionElement = option ? createOptionElementWithClass(option) : createOptionTemplateElement()
 
     choiseBoardElement.append(boardHeader)
     choiseBoardElement.append(optionElement)
 
     return choiseBoardElement
+}
+const createOptionElementWithClass = (option) => {
+    const optionElement = createOptionElement(option)
+    optionElement.classList.add('selectedOption')
+    return optionElement
+
+}
+
+const createOptionTemplateElement = () => {
+    const optionTemplateElement = document.createElement('div')
+    optionTemplateElement.classList.add('option-template')
+
+    return optionTemplateElement
 }

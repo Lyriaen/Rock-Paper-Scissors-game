@@ -9,7 +9,7 @@ export const createStepOneView = (version) => {
 }
 
 const createOptionsElement = (version) => {
-    const { versionName, options, backgroundImageName, getPoints } = version
+    const { versionName, options, backgroundImageName } = version
     const mainElement = document.querySelector('.main')
     const optionsContainerElement = document.createElement('section')
     optionsContainerElement.classList.add('main_optionsContainer')
@@ -21,7 +21,7 @@ const createOptionsElement = (version) => {
     for (const [option, position] of Object.entries(options)) {
         const newOptionElement = createOptionElement(option, position)
         newOptionElement.classList.add(classDependsOnVersion(versionName))
-        addEventListenerToElement(newOptionElement, option, position, getPoints)
+        addEventListenerToElement(newOptionElement, option, Object.keys(options))
         optionsContainerElement.append(newOptionElement)
     }
     mainElement.append(optionsContainerElement)
@@ -42,6 +42,17 @@ const classDependsOnVersion = (version) => {
     }
 }
 
-const addEventListenerToElement = (newOptionElement, option, getPoints) => {
-    newOptionElement.addEventListener('click', () => { createStepTwoView(option, getPoints) })
+const addEventListenerToElement = (newOptionElement, selectedOption, options) => {
+    newOptionElement.addEventListener('click', () => goToStepTwo(selectedOption, options))
+}
+
+const goToStepTwo = (userChoice, options) => {
+    const computerChoice = randomComputerChoice(options)
+    createStepTwoView(userChoice, computerChoice)
+}
+
+const randomComputerChoice = (options) => {
+    const computerChoiceIndex = Math.floor(Math.random() * options.length)
+    const computerChoice = options[computerChoiceIndex]
+    return computerChoice;
 }
