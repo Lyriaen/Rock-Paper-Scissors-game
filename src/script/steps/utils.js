@@ -18,18 +18,28 @@ export const createOptionElement = (option, position) => {
     return optionElement
 }
 
-export const createChoiseBoard = (option, user) => {
-    const choiseBoardElement = document.createElement('section')
-    choiseBoardElement.classList.add('choiseBoard')
+export const createChoiceBoard = (option, user) => {
+    const choiceBoardElement = document.createElement('section')
+    choiceBoardElement.classList.add('choiceBoard')
     const boardHeader = document.createElement('h2')
+    boardHeader.classList.add('boardHeader')
     boardHeader.textContent = user === 'user' ? 'you picked' : 'the house picked'
 
-    const optionElement = option ? createOptionElementWithClass(option) : createOptionTemplateElement()
+    const optionElementContainer = document.createElement('div')
+    optionElementContainer.classList.add('optionElementContainer')
+    const optionElement = createOptionElementWithClass(option)
 
-    choiseBoardElement.append(boardHeader)
-    choiseBoardElement.append(optionElement)
+    choiceBoardElement.append(boardHeader)
+    choiceBoardElement.append(optionElementContainer)
 
-    return choiseBoardElement
+    if (!user) {
+        const computerChoiceTemplateElement = createOptionTemplateElement()
+        optionElementContainer.append(computerChoiceTemplateElement)
+        optionElement.classList.add('computerChoice')
+    }
+    optionElementContainer.append(optionElement)
+
+    return choiceBoardElement
 }
 const createOptionElementWithClass = (option) => {
     const optionElement = createOptionElement(option)

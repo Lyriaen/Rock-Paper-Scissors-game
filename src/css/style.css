@@ -77,6 +77,27 @@ body {
 
 .boards-container {
     display: flex;
+    gap: 40px;
+}
+
+
+.choiceBoard {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+}
+
+.boardHeader {
+    color: var(--light-background);
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px black;
+}
+
+.optionElementContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .basic-version.main_optionsContainer_backgroundImage {

@@ -6,7 +6,6 @@
     background-repeat: no-repeat;
     background-position: center;
 
-
     --scissors-gradient: linear-gradient(to top, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
     --scissors-shadow: hsl(29, 81%, 44%);
     --paper-gradient: linear-gradient(to top, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
@@ -24,6 +23,7 @@
     width: 150px;
     border-radius: 50%;
     background-color: rgb(23, 34, 62);
+    position: absolute;
 }
 
 .basic-version.option,
@@ -46,6 +46,17 @@
     height: 200px;
     width: 200px;
     border-width: 25px;
+    /* opacity: 1; */
+}
+
+.computerChoice {
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+
+.computerChoice-show {
+    opacity: 1;
+    z-index: 1;
 }
 
 .iconContainer {

@@ -1,5 +1,5 @@
 import { clearMainWindow } from "../utils/functions.js"
-import { createChoiseBoard, createOptionElement } from "./utils.js"
+import { createChoiceBoard, createOptionElement } from "./utils.js"
 
 export const createStepTwoView = (userChoice, computerChoice) => {
     console.log(computerChoice)
@@ -8,10 +8,20 @@ export const createStepTwoView = (userChoice, computerChoice) => {
     const boardsContainerElement = document.createElement('div')
     boardsContainerElement.classList.add('boards-container')
     mainElement.append(boardsContainerElement)
-    const userChoiceBoard = createChoiseBoard(userChoice, 'user')
+    const userChoiceBoard = createChoiceBoard(userChoice, 'user')
     boardsContainerElement.append(userChoiceBoard)
 
-    const computerTemplateChoiceBoard = createChoiseBoard()
-    boardsContainerElement.append(computerTemplateChoiceBoard)
+    const computerChoiceBoard = createChoiceBoard(computerChoice)
+    boardsContainerElement.append(computerChoiceBoard)
+    // const computerChoiceTemplateElement = createOptionTemplateElement()
+    // computerChoiceBoard.append(computerChoiceTemplateElement)
+    // const computerChoiceElement = createOptionElement(computerChoice)
+    // computerTemplateChoiceBoard.append(computerChoiceElement)
+
+    setTimeout(() => {
+        const element = document.querySelector('.computerChoice')
+        console.log(element)
+        element.classList.add('computerChoice-show')
+    }, 1000)
 
 }
