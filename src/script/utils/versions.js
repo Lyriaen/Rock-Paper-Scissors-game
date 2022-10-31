@@ -15,7 +15,21 @@ export const basicVersion = {
             left: 100,
         }
     },
-    backgroundImageName: 'bg-triangle.svg'
+    backgroundImageName: 'bg-triangle.svg',
+    getResult: (userChoice, computerChoice) => {
+        if (userChoice === computerChoice) {
+            return 'draw'
+        }
+        if (userChoice === 'scissors') {
+            return computerChoice === 'paper' ? 'win' : 'lose'
+        }
+        if (userChoice === 'paper') {
+            return computerChoice === 'rock' ? 'win' : 'lose'
+        }
+        if (userChoice === 'rock') {
+            return computerChoice === 'scissors' ? 'win' : 'lose'
+        }
+    }
 }
 
 
@@ -44,5 +58,30 @@ export const bonusVersion = {
             left: 3,
         }
     },
-    backgroundImageName: 'bg-pentagon.svg'
+    backgroundImageName: 'bg-pentagon.svg',
+    getResult: (userChoice, computerChoice) => {
+        if (userChoice === computerChoice) {
+            return 'draw'
+        }
+        if (userChoice === 'scissors') {
+            return computerChoice === 'paper' || computerChoice === 'lizard' ?
+                'win' : 'lose'
+        }
+        if (userChoice === 'paper') {
+            return computerChoice === 'rock' || computerChoice === 'spock' ?
+                'win' : 'lose'
+        }
+        if (userChoice === 'rock') {
+            return computerChoice === 'lizard' || computerChoice === 'scissors' ?
+                'win' : 'lose'
+        }
+        if (userChoice === 'lizard') {
+            return computerChoice === 'spock' || computerChoice === 'paper' ?
+                'win' : 'lose'
+        }
+        if (userChoice === 'spock') {
+            return computerChoice === 'rock' || computerChoice === 'scissors' ?
+                'win' : 'lose'
+        }
+    }
 }

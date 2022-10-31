@@ -21,7 +21,7 @@ const createOptionsElement = (version) => {
     for (const [option, position] of Object.entries(options)) {
         const newOptionElement = createOptionElement(option, position)
         newOptionElement.classList.add(classDependsOnVersion(versionName))
-        addEventListenerToElement(newOptionElement, option, Object.keys(options))
+        addEventListenerToElement(newOptionElement, option, Object.keys(options), versionName)
         optionsContainerElement.append(newOptionElement)
     }
     mainElement.append(optionsContainerElement)
@@ -42,13 +42,13 @@ const classDependsOnVersion = (version) => {
     }
 }
 
-const addEventListenerToElement = (newOptionElement, selectedOption, options) => {
-    newOptionElement.addEventListener('click', () => goToStepTwo(selectedOption, options))
+const addEventListenerToElement = (newOptionElement, selectedOption, options, versionName) => {
+    newOptionElement.addEventListener('click', () => goToStepTwo(selectedOption, options, versionName))
 }
 
-const goToStepTwo = (userChoice, options) => {
+const goToStepTwo = (userChoice, options, versionName) => {
     const computerChoice = randomComputerChoice(options)
-    createStepTwoView(userChoice, computerChoice)
+    createStepTwoView(userChoice, computerChoice, versionName)
 }
 
 const randomComputerChoice = (options) => {
