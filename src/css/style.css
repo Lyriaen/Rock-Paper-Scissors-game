@@ -78,6 +78,7 @@ body {
 .boards-container {
     display: flex;
     gap: 40px;
+    align-items: center;
 }
 
 
@@ -92,6 +93,19 @@ body {
     color: var(--light-background);
     text-transform: uppercase;
     text-shadow: 2px 2px 5px black;
+}
+
+.resultContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resultText {
+    color: var(--light-background);
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px black;
+    font-size: 52px;
 }
 
 .optionElementContainer {

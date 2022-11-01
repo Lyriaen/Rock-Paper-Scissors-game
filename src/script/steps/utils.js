@@ -21,6 +21,10 @@ export const createOptionElement = (option, position) => {
 export const createChoiceBoard = (option, user) => {
     const choiceBoardElement = document.createElement('section')
     choiceBoardElement.classList.add('choiceBoard')
+    if (!user) {
+        choiceBoardElement.classList.add('computerChoiceBoard')
+    }
+
     const boardHeader = document.createElement('h2')
     boardHeader.classList.add('boardHeader')
     boardHeader.textContent = user === 'user' ? 'you picked' : 'the house picked'

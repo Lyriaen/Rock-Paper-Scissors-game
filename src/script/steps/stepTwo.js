@@ -25,8 +25,18 @@ export const createStepTwoView = (userChoice, computerChoice, versionName) => {
 const addResultBoard = (userChoice, computerChoice, versionName) => {
     const getResult = getResultFunctionBasedOnVersion(versionName)
     const result = getResult(userChoice, computerChoice)
-    console.log(result)
-
+    const resultContainer = document.createElement('div')
+    resultContainer.classList.add('resultContainer')
+    const resultTextElement = document.createElement('p')
+    resultTextElement.classList.add('resultText')
+    resultTextElement.textContent = `You ${result}`
+    resultContainer.append(resultTextElement)
+    const playAgainButton = document.createElement('button')
+    playAgainButton.classList.add('button', 'primary-button')
+    playAgainButton.textContent = 'play again'
+    resultContainer.append(playAgainButton)
+    const computerChoiceElement = document.querySelector('.computerChoiceBoard')
+    computerChoiceElement.before(resultContainer)
 }
 
 const getResultFunctionBasedOnVersion = (versionName) => {
