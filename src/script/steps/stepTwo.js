@@ -1,6 +1,7 @@
 import { clearMainWindow } from "../utils/functions.js"
 import { createChoiceBoard, createOptionElement } from "./utils.js"
 import { basicVersion, bonusVersion } from "../utils/versions.js"
+import { createStepOneView } from "./stepOne.js"
 
 export const createStepTwoView = (userChoice, computerChoice, versionName) => {
     clearMainWindow()
@@ -38,6 +39,7 @@ const addResultBoard = (userChoice, computerChoice, versionName) => {
     playAgainButton.textContent = 'play again'
     resultContainer.classList.add('resultContainer-show')
     resultContainer.append(playAgainButton)
+    playAgainButton.addEventListener('click', () => startNewGame(versionName))
     // const computerChoiceElement = document.querySelector('.computerChoiceBoard')
     // computerChoiceElement.before(resultContainer)
 }
@@ -49,5 +51,13 @@ const getResultFunctionBasedOnVersion = (versionName) => {
     if (versionName === 'bonus') {
         return bonusVersion.getResult
     }
+}
 
+const startNewGame = (versionName) => {
+    if (versionName === 'basic') {
+        createStepOneView(basicVersion)
+    }
+    if (versionName === 'bonus') {
+        createStepOneView(bonusVersion)
+    }
 }
