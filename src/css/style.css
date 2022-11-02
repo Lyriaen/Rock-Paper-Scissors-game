@@ -101,6 +101,17 @@ body {
     align-items: center;
 }
 
+.resultContainer-hide {
+    width: 0;
+    opacity: 0;
+    transition: width 1s ease, opacity 1s ease 0.5s;
+}
+
+.resultContainer-show {
+    width: 300px;
+    opacity: 1;
+}
+
 .resultText {
     color: var(--light-background);
     text-transform: uppercase;
