@@ -35,9 +35,12 @@ export const createChoiceBoard = (option, user) => {
 
     choiceBoardElement.append(boardHeader)
     choiceBoardElement.append(optionElementContainer)
-
+    if (user) {
+        const userChoiceTemplateElement = createOptionTemplateElement('user-option-template')
+        optionElementContainer.append(userChoiceTemplateElement)
+    }
     if (!user) {
-        const computerChoiceTemplateElement = createOptionTemplateElement()
+        const computerChoiceTemplateElement = createOptionTemplateElement('computer-option-template')
         optionElementContainer.append(computerChoiceTemplateElement)
         optionElement.classList.add('computerChoice')
     }
@@ -52,9 +55,8 @@ const createOptionElementWithClass = (option) => {
 
 }
 
-const createOptionTemplateElement = () => {
+const createOptionTemplateElement = (userOrComputerClass) => {
     const optionTemplateElement = document.createElement('div')
-    optionTemplateElement.classList.add('option-template')
-
+    optionTemplateElement.classList.add('option-template', userOrComputerClass)
     return optionTemplateElement
 }

@@ -93,12 +93,14 @@ body {
     color: var(--light-background);
     text-transform: uppercase;
     text-shadow: 2px 2px 5px black;
+    z-index: 1;
 }
 
 .resultContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
 }
 
 .resultContainer-hide {
@@ -150,6 +152,7 @@ body {
     border-radius: 7px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    z-index: 1;
 }
 
 .primary-button {
