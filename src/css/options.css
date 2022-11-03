@@ -1,10 +1,9 @@
 :root {
     --radius: 40px;
-    --border-width: 25px;
 }
 
 .option {
-    border: calc(var(--border-width) - 10px) solid;
+    border: 15px solid;
     border-radius: 50%;
     border-color: transparent;
     background-color: var(--light-background);
@@ -52,7 +51,7 @@
 .selectedOption {
     height: 200px;
     width: 200px;
-    border-width: var(--border-width);
+    border-width: 25px;
     /* opacity: 1; */
 }
 
