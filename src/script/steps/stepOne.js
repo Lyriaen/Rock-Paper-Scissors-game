@@ -1,6 +1,8 @@
 import { clearMainWindow } from "../utils/functions.js"
 import { createStepTwoView } from "./stepTwo.js"
 import { createOptionElement } from './utils.js'
+import { createElement } from "../utils/functions.js"
+
 
 export const createStepOneView = (version) => {
     showFooter()
@@ -11,16 +13,17 @@ export const createStepOneView = (version) => {
 const createOptionsElement = (version) => {
     const { versionName, options, backgroundImageName } = version
     const mainElement = document.querySelector('.main')
-    const optionsContainerElement = document.createElement('section')
-    optionsContainerElement.classList.add('main_optionsContainer')
+    const optionsContainerElement = createElement('section', ['main_optionsContainer'])
 
-    const backgroundImage = document.createElement('img')
+    const backgroundImage = createElement('img',
+        ['main_optionsContainer_backgroundImage', classDependsOnVersion(versionName)]
+    )
     backgroundImage.src = `./src/images/${backgroundImageName}`
-    backgroundImage.classList.add('main_optionsContainer_backgroundImage', classDependsOnVersion(versionName))
+
     optionsContainerElement.append(backgroundImage)
+
     for (const [option, position] of Object.entries(options)) {
-        const newOptionElement = createOptionElement(option, position)
-        newOptionElement.classList.add(classDependsOnVersion(versionName))
+        const newOptionElement = createOptionElement(option, classDependsOnVersion(versionName), position)
         addEventListenerToElement(newOptionElement, option, Object.keys(options), versionName)
         optionsContainerElement.append(newOptionElement)
     }

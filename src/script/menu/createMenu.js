@@ -1,33 +1,36 @@
+import { createElement } from "../utils/functions.js"
 import { addMenuEventListeners } from "./menuEventListeners.js"
 
 export const createMenu = () => {
     const mainElement = document.querySelector('.main')
-    const buttonContainer = document.createElement('section')
-    buttonContainer.classList.add('main_button-container')
+
+    const buttonContainer = createElement('section', ['main_button-container'])
 
     const firstVersionButtonContainer = createVersionButtonContainer('Basic')
-    buttonContainer.append(firstVersionButtonContainer)
     const secondVersionButtonContainer = createVersionButtonContainer('Bonus')
-    buttonContainer.append(secondVersionButtonContainer)
 
+    buttonContainer.append(firstVersionButtonContainer)
+    buttonContainer.append(secondVersionButtonContainer)
     mainElement.append(buttonContainer)
+
     addMenuEventListeners();
 }
 
 const createVersionButtonContainer = (version) => {
-    const versionContainer = document.createElement('div')
-    versionContainer.classList.add('main_button-container_version')
+    const gameVersionButton = createElement('button',
+        ['button', 'primary-button', 'menu-button'],
+        `Play ${version} version`,
+        `start${version}VersionButton`
+    )
+    const rulesButton = createElement('button',
+        ['button', 'secondary-button'],
+        'rules',
+        `${version.toLowerCase()}VersionRulesButton`
+    )
 
-    const gameVersionButton = document.createElement('button')
-    gameVersionButton.classList.add('button', 'primary-button', 'menu-button')
-    gameVersionButton.textContent = 'Play ' + version + ' version'
-    gameVersionButton.id = 'start' + version + 'VersionButton'
+    const versionContainer = createElement('div', ['main_button-container_version'])
+
     versionContainer.append(gameVersionButton)
-
-    const rulesButton = document.createElement('button')
-    rulesButton.classList.add('button', 'secondary-button')
-    rulesButton.textContent = 'rules'
-    rulesButton.id = version.toLowerCase() + 'VersionRulesButton'
     versionContainer.append(rulesButton)
 
     return versionContainer

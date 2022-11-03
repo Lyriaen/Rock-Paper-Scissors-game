@@ -1,18 +1,18 @@
-import { clearMainWindow } from "../utils/functions.js"
-import { createChoiceBoard, createOptionElement } from "./utils.js"
+import { clearMainWindow, createElement } from "../utils/functions.js"
+import { createChoiceBoard } from "./utils.js"
 import { basicVersion, bonusVersion } from "../utils/versions.js"
 import { createStepOneView } from "./stepOne.js"
 
 export const createStepTwoView = (userChoice, computerChoice, versionName) => {
     clearMainWindow()
     const mainElement = document.querySelector('.main')
-    const boardsContainerElement = document.createElement('div')
-    boardsContainerElement.classList.add('boards-container')
+    const boardsContainerElement = createElement('div', ['boards-container'])
+
     mainElement.append(boardsContainerElement)
     const userChoiceBoard = createChoiceBoard(userChoice, 'user')
     boardsContainerElement.append(userChoiceBoard)
-    const resultContainer = document.createElement('div')
-    resultContainer.classList.add('resultContainer', 'resultContainer-hide')
+    const resultContainer = createElement('div', ['resultContainer', 'resultContainer-hide'])
+
     const computerChoiceBoard = createChoiceBoard(computerChoice)
     boardsContainerElement.append(computerChoiceBoard)
     computerChoiceBoard.before(resultContainer)
@@ -27,19 +27,24 @@ export const createStepTwoView = (userChoice, computerChoice, versionName) => {
 const addResultBoard = (userChoice, computerChoice, versionName) => {
     const getResult = getResultFunctionBasedOnVersion(versionName)
     const result = getResult(userChoice, computerChoice)
-    // const resultContainer = document.createElement('div')
-    // resultContainer.classList.add('resultContainer')
+
     const resultContainer = document.querySelector('.resultContainer')
-    const resultTextElement = document.createElement('p')
-    resultTextElement.classList.add('resultText')
-    resultTextElement.textContent = `You ${result}`
-    resultContainer.append(resultTextElement)
-    const playAgainButton = document.createElement('button')
-    playAgainButton.classList.add('button', 'primary-button')
-    playAgainButton.textContent = 'play again'
     resultContainer.classList.add('resultContainer-show')
-    resultContainer.append(playAgainButton)
+
+    const resultTextElement = createElement('p',
+        ['resultText'],
+        `You ${result}`
+    )
+    resultContainer.append(resultTextElement)
+
+    const playAgainButton = createElement('button',
+        ['button', 'primary-button'],
+        'play again'
+    )
     playAgainButton.addEventListener('click', () => startNewGame(versionName))
+
+    resultContainer.append(playAgainButton)
+
     const pointsElement = document.querySelector('.header_score-container_score')
     let points = +pointsElement.textContent
     setTimeout(() => {
@@ -57,8 +62,6 @@ const addResultBoard = (userChoice, computerChoice, versionName) => {
         pointsElement.textContent = points
 
     }, 1000)
-    // const computerChoiceElement = document.querySelector('.computerChoiceBoard')
-    // computerChoiceElement.before(resultContainer)
 }
 
 const getResultFunctionBasedOnVersion = (versionName) => {
