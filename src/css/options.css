@@ -1,5 +1,10 @@
+:root {
+    --radius: 40px;
+    --border-width: 25px;
+}
+
 .option {
-    border: 15px solid;
+    border: calc(var(--border-width) - 10px) solid;
     border-radius: 50%;
     border-color: transparent;
     background-color: var(--light-background);
@@ -40,14 +45,14 @@
 }
 
 .bonus-version.option {
-    height: 130px;
-    width: 130px;
+    height: 140px;
+    width: 140px;
 }
 
 .selectedOption {
     height: 200px;
     width: 200px;
-    border-width: 25px;
+    border-width: var(--border-width);
     /* opacity: 1; */
 }
 
@@ -112,69 +117,73 @@
 
 .winner {
     animation: ripple 1000ms infinite;
+    width: 200px;
+    height: 200px;
     z-index: 0;
+    border-radius: 50%;
+    opacity: 0.8;
 }
 
 @keyframes ripple {
     0% {
         box-shadow:
-            0 0 0 20px rgba(47, 60, 91, 0),
-            0 0 0 20px rgba(41, 53, 82, 0),
-            0 0 0 20px rgba(31, 43, 75, 0);
+            0 0 2px 0px rgba(47, 60, 91, 0),
+            0 0 2px 0px rgba(41, 53, 82, 0),
+            0 0 2px 0px rgba(31, 43, 75, 0);
     }
 
     15% {
         box-shadow:
-            0 0 0 50px rgba(47, 60, 91, 1),
-            0 0 0 50px rgba(41, 53, 82, 0),
-            0 0 0 50px rgba(31, 43, 75, 0);
+            0 0 2px var(--radius) rgba(47, 60, 91, 1),
+            0 0 2px var(--radius) rgba(41, 53, 82, 0),
+            0 0 2px var(--radius) rgba(31, 43, 75, 0);
     }
 
     30% {
         box-shadow:
-            0 0 0 50px rgba(47, 60, 91, 1),
-            0 0 0 80px rgba(41, 53, 82, 1),
-            0 0 0 80px rgba(31, 43, 75, 0);
+            0 0 2px var(--radius) rgba(47, 60, 91, 1),
+            0 0 2px calc(var(--radius) * 2) rgba(41, 53, 82, 1),
+            0 0 2px calc(var(--radius) * 2) rgba(31, 43, 75, 0);
     }
 
     45% {
         box-shadow:
-            0 0 0 50px rgba(47, 60, 91, 1),
-            0 0 0 80px rgba(41, 53, 82, 1),
-            0 0 0 110px rgba(31, 43, 75, 1);
+            0 0 2px var(--radius) rgba(47, 60, 91, 1),
+            0 0 2px calc(var(--radius) * 2) rgba(41, 53, 82, 1),
+            0 0 2px calc(var(--radius) *3) rgba(31, 43, 75, 1);
     }
 
     60% {
         box-shadow:
-            0 0 0 80px rgba(47, 60, 91, 0),
-            0 0 0 80px rgba(41, 53, 82, 1),
-            0 0 0 110px rgba(31, 43, 75, 1);
+            0 0 2px calc((var(--radius) * 2)) rgba(47, 60, 91, 0),
+            0 0 2px calc((var(--radius) *2)) rgba(41, 53, 82, 1),
+            0 0 2px calc((var(--radius) * 3)) rgba(31, 43, 75, 1);
     }
 
     75% {
         box-shadow:
-            0 0 0 110px rgba(47, 60, 91, 0),
-            0 0 0 110px rgba(41, 53, 82, 0),
-            0 0 0 110px rgba(31, 43, 75, 1);
+            0 0 2px calc((var(--radius) * 3)) rgba(47, 60, 91, 0),
+            0 0 2px calc((var(--radius) *3)) rgba(41, 53, 82, 0),
+            0 0 2px calc((var(--radius) *3)) rgba(31, 43, 75, 1);
     }
 
     90% {
         box-shadow:
-            0 0 0 110px rgba(47, 60, 91, 0),
-            0 0 0 110px rgba(41, 53, 82, 0),
-            0 0 0 110px rgba(31, 43, 75, 1);
+            0 0 2px calc((var(--radius) *3)) rgba(47, 60, 91, 0),
+            0 0 2px calc((var(--radius) * 3)) rgba(41, 53, 82, 0),
+            0 0 2px calc((var(--radius) * 3)) rgba(31, 43, 75, 1);
     }
 
 
 
     100% {
         box-shadow:
-            0 0 0 110px rgba(47, 60, 91, 0),
-            0 0 0 110px rgba(41, 53, 82, 0),
-            0 0 0 110px rgba(31, 43, 75, 0);
+            0 0 2px calc((var(--radius) * 3)) rgba(47, 60, 91, 0),
+            0 0 2px calc((var(--radius) * 3)) rgba(41, 53, 82, 0),
+            0 0 2px calc((var(--radius) * 3)) rgba(31, 43, 75, 0);
     }
 
-    /* 0 0 0 30px hsl(222, 31.9%, 27.1%),
+    /* 0 0 0 2px hsl(222, 31.9%, 27.1%),
             0 0 0 60px hsl(222, 33.3%, 24.1%),
             0 0 0 90px hsl(224, 41.5%, 20.8%); */
 
