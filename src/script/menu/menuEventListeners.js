@@ -1,7 +1,10 @@
 import { basicVersion, bonusVersion } from "../utils/versions.js"
 import { createStepOneView } from "./../steps/stepOne.js"
+import { getStartingPoints } from "../utils/functions.js"
 
 export const addMenuEventListeners = () => {
+    getStartingPoints()
+
     const startBasicVersionButton = document.getElementById('startBasicVersionButton')
     const basicVersionRulesButton = document.getElementById('basicVersionRulesButton')
 

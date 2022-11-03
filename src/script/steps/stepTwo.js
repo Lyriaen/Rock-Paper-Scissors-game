@@ -40,15 +40,22 @@ const addResultBoard = (userChoice, computerChoice, versionName) => {
     resultContainer.classList.add('resultContainer-show')
     resultContainer.append(playAgainButton)
     playAgainButton.addEventListener('click', () => startNewGame(versionName))
+    const pointsElement = document.querySelector('.header_score-container_score')
+    let points = +pointsElement.textContent
     setTimeout(() => {
         if (result === 'win') {
             const userChoice = document.querySelector('.user-option-template')
             userChoice.classList.add('winner')
+            ++points
         }
         if (result === 'lose') {
             const computerChoice = document.querySelector('.computer-option-template')
             computerChoice.classList.add('winner')
+            --points
         }
+        localStorage.setItem('points', points)
+        pointsElement.textContent = points
+
     }, 1000)
     // const computerChoiceElement = document.querySelector('.computerChoiceBoard')
     // computerChoiceElement.before(resultContainer)
