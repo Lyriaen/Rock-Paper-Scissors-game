@@ -24,10 +24,11 @@ body {
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .header {
-    margin: 20px auto;
+    margin: 20px auto 0;
     padding: 20px;
     border: 3px solid var(--header-outline-color);
     border-radius: 15px;
@@ -134,12 +135,21 @@ body {
 .bonus-version.main_optionsContainer_backgroundImage {
     width: 300px;
 }
-
-.main_button-container {
+main{
+    overflow: hidden;
+}
+.main_menu{
     align-self: flex-start;
+    transition: all 1s ease;
+    transform: translateY(0%);
 }
 
-.main_button-container_version {
+.main_menu.hide{
+    transform: translateY(-150%);
+}
+
+.main_menu_version {
+    position: relative;
     display: flex;
     justify-content: center;
 }
@@ -171,5 +181,10 @@ body {
 
 .footer {
     text-align: right;
-    display: none;
+    transform: translateY(0%);
+    transition: transform 1s ease;
+}
+
+.footer.hide{
+    transform: translateY(100%);
 }

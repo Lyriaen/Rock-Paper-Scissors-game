@@ -6,8 +6,10 @@ import { createElement } from "../utils/functions.js"
 
 export const createStepOneView = (version) => {
     showFooter()
-    clearMainWindow()
-    createOptionsElement(version)
+    // clearMainWindow()
+    const mainMenuContainer = document.querySelector('.main_menu')
+    mainMenuContainer.classList.add('hide')
+    // createOptionsElement(version)
 }
 
 const createOptionsElement = (version) => {
@@ -33,7 +35,7 @@ const createOptionsElement = (version) => {
 
 const showFooter = () => {
     const footer = document.querySelector('.footer')
-    footer.style.display = 'block'
+    footer.classList.remove('hide')
 }
 
 const classDependsOnVersion = (version) => {
