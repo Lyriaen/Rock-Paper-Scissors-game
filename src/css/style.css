@@ -63,16 +63,22 @@ body {
 
 .main {
     flex-grow: 1;
-    /* align-self: center; */
+    position: relative;
+     /*align-self: center;*/
     padding: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .main_optionsContainer {
+    align-self: center;
     text-align: center;
-    position: relative;
+    margin: 0 auto;
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
     /* background-color: aliceblue; */
 }
 
@@ -135,9 +141,7 @@ body {
 .bonus-version.main_optionsContainer_backgroundImage {
     width: 300px;
 }
-main{
-    overflow: hidden;
-}
+
 .main_menu{
     align-self: flex-start;
     transition: all 1s ease;
@@ -148,10 +152,74 @@ main{
     transform: translateY(-150%);
 }
 
-.main_menu_version {
+.main_basicVersionContainer{
     position: relative;
+    justify-self: center;
+
+    align-self: center;
+    text-align: center;
+    position: absolute;
+    margin: 0 auto;
     display: flex;
+    align-items: center;
     justify-content: center;
+    /* background-color: aliceblue; */
+}
+
+.main_bonusVersionContainer{
+    position: relative;
+    justify-self: center;
+
+    align-self: center;
+    text-align: center;
+    position: absolute;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: aliceblue; */
+}
+
+
+.main_menu_version {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_basicVersionContainer[open],
+.main_bonusVersionContainer[open]{
+    animation: fade-in 1000ms forwards;
+}
+
+.main_basicVersionContainer[closing],
+.main_bonusVersionContainer[closing]{
+    display: block;
+    animation: fade-out 1000ms forwards;
+}
+
+.main_basicVersionContainer.hide,
+.main_bonusVersionContainer.hide{
+    display: none;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 .button {

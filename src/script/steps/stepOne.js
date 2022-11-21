@@ -9,27 +9,55 @@ export const createStepOneView = (version) => {
     // clearMainWindow()
     const mainMenuContainer = document.querySelector('.main_menu')
     mainMenuContainer.classList.add('hide')
-    // createOptionsElement(version)
+    createOptionsElement(version)
 }
 
-const createOptionsElement = (version) => {
-    const { versionName, options, backgroundImageName } = version
-    const mainElement = document.querySelector('.main')
-    const optionsContainerElement = createElement('section', ['main_optionsContainer'])
+const createOptionsElement = ({ versionName, options, backgroundImageName }) => {
 
-    const backgroundImage = createElement('img',
-        ['main_optionsContainer_backgroundImage', classDependsOnVersion(versionName)]
-    )
-    backgroundImage.src = `./src/images/${backgroundImageName}`
+    if (!document.querySelector(`.main_${versionName}VersionContainer`)){
 
-    optionsContainerElement.append(backgroundImage)
+        const mainElement = document.querySelector('.main')
 
-    for (const [option, position] of Object.entries(options)) {
-        const newOptionElement = createOptionElement(option, classDependsOnVersion(versionName), position)
-        addEventListenerToElement(newOptionElement, option, Object.keys(options), versionName)
-        optionsContainerElement.append(newOptionElement)
+        const versionContainerElement = createElement('section', [`main_${versionName}VersionContainer`])
+
+        const optionsContainerElement = createElement('div', ['main_optionsContainer'])
+        const backgroundImage = createElement('img',
+                                              ['main_optionsContainer_backgroundImage', classDependsOnVersion(versionName)]
+        )
+        backgroundImage.src = `./src/images/${backgroundImageName}`
+
+        optionsContainerElement.append(backgroundImage)
+
+        for (const [option, position] of Object.entries(options)) {
+            const newOptionElement = createOptionElement(option, classDependsOnVersion(versionName), position)
+            addEventListenerToElement(newOptionElement, option, Object.keys(options), versionName)
+            optionsContainerElement.append(newOptionElement)
+        }
+        versionContainerElement.append(optionsContainerElement)
+        versionContainerElement.setAttribute("open", "");
+
+        versionContainerElement.addEventListener(
+            "animationend",
+            () => {
+                versionContainerElement.removeAttribute("open");
+                versionContainerElement.classList.add('open')
+            },
+            { once: true }
+        );
+        mainElement.append(versionContainerElement)
+
     }
-    mainElement.append(optionsContainerElement)
+    const versionContainerElement = document.querySelector(`.main_${versionName}VersionContainer`)
+    versionContainerElement.setAttribute("open", "");
+    versionContainerElement.classList.remove('hide')
+    versionContainerElement.addEventListener(
+        "animationend",
+        () => {
+            versionContainerElement.removeAttribute("open");
+            versionContainerElement.classList.add('open')
+        },
+        { once: true }
+    );
 }
 
 
