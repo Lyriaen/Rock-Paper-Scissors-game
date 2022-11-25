@@ -4,7 +4,6 @@ import { basicVersion, bonusVersion } from "../utils/versions.js"
 import { createStepOneView } from "./stepOne.js"
 
 export const createStepTwoView = (userChoice, computerChoice, versionName) => {
-    clearMainWindow()
     const mainElement = document.querySelector('.main')
     const boardsContainerElement = createElement('div', ['boards-container'])
 
@@ -74,10 +73,10 @@ const getResultFunctionBasedOnVersion = (versionName) => {
 }
 
 const startNewGame = (versionName) => {
-    if (versionName === 'basic') {
-        createStepOneView(basicVersion)
-    }
-    if (versionName === 'bonus') {
-        createStepOneView(bonusVersion)
-    }
+    const boardsContainer = document.querySelector( '.boards-container' )
+    document.querySelector( 'main' ).removeChild( boardsContainer )
+
+    const versionContainerElement = document.querySelector( `.main_${ versionName }VersionContainer ` )
+    versionContainerElement.setAttribute( "open" , "" );
+    versionContainerElement.classList.remove( 'hide' );
 }

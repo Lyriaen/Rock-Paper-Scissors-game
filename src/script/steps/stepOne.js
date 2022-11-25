@@ -41,8 +41,7 @@ const createOptionsElement = ({ versionName, options, backgroundImageName }) => 
             () => {
                 versionContainerElement.removeAttribute("open");
                 versionContainerElement.classList.add('open')
-            },
-            { once: true }
+            }
         );
         mainElement.append(versionContainerElement)
 
@@ -81,7 +80,21 @@ const addEventListenerToElement = (newOptionElement, selectedOption, options, ve
 
 const goToStepTwo = (userChoice, options, versionName) => {
     const computerChoice = randomComputerChoice(options)
-    createStepTwoView(userChoice, computerChoice, versionName)
+    const openVersionContainer = document.querySelector('.open')
+    console.log(openVersionContainer)
+    openVersionContainer.setAttribute("closing", "");
+
+    openVersionContainer.addEventListener(
+        "animationend",
+        () => {
+            openVersionContainer.removeAttribute("closing");
+            openVersionContainer.classList.remove('open')
+            openVersionContainer.classList.add('hide')
+            createStepTwoView(userChoice, computerChoice, versionName)
+        },
+        { once: true }
+    );
+
 }
 
 const randomComputerChoice = (options) => {
