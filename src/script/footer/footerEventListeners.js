@@ -1,19 +1,22 @@
-import { clearMainWindow } from '../utils/functions.js';
-// import { createMenu } from './../menu/createMenu.js'
+import { removeResultBoard } from '../utils/functions.js';
 
 const backToMenuButton = document.getElementById('backToMenuButton');
 
 const backToMenu = () => {
-    const footer = document.querySelector('.footer')
-    footer.classList.add('hide')
-    // clearMainWindow()
-    const mainMenuContainer = document.querySelector('.main_menu')
-    mainMenuContainer.classList.remove('hide')
-    const openVersionContainer = document.querySelector('.open')
-    console.log(openVersionContainer)
-    openVersionContainer.setAttribute("closing", "");
+    hideFooter();
+    hideChoiceBoard();
+    removeResultBoard()
+    showMainMenu();
+}
 
-    openVersionContainer.addEventListener(
+const hideFooter = () => {
+    document.querySelector('.footer').classList.add('hide')
+}
+
+const hideChoiceBoard = () => {
+    const openVersionContainer = document.querySelector('.open')
+    openVersionContainer?.setAttribute("closing", "");
+    openVersionContainer?.addEventListener(
         "animationend",
         () => {
             openVersionContainer.removeAttribute("closing");
@@ -22,7 +25,10 @@ const backToMenu = () => {
         },
         { once: true }
     );
-    // createMenu()
+}
+
+const showMainMenu = () => {
+    document.querySelector('.main_menu').classList.remove('hide')
 }
 
 backToMenuButton.addEventListener('click', backToMenu)

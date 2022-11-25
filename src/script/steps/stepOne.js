@@ -1,12 +1,10 @@
-import { clearMainWindow } from "../utils/functions.js"
-import { createStepTwoView } from "./stepTwo.js"
+import { createStepTwoView } from './stepTwo.js'
 import { createOptionElement } from './utils.js'
 import { createElement } from "../utils/functions.js"
 
 
 export const createStepOneView = (version) => {
-    showFooter()
-    // clearMainWindow()
+    showFooter();
     const mainMenuContainer = document.querySelector('.main_menu')
     mainMenuContainer.classList.add('hide')
     createOptionsElement(version)
@@ -65,6 +63,10 @@ const showFooter = () => {
     footer.classList.remove('hide')
 }
 
+const hideMainMenu = () => {
+    document.querySelector('.main_menu').classList.add('hide')
+}
+
 const classDependsOnVersion = (version) => {
     if (version === 'basic') {
         return 'basic-version'
@@ -81,7 +83,6 @@ const addEventListenerToElement = (newOptionElement, selectedOption, options, ve
 const goToStepTwo = (userChoice, options, versionName) => {
     const computerChoice = randomComputerChoice(options)
     const openVersionContainer = document.querySelector('.open')
-    console.log(openVersionContainer)
     openVersionContainer.setAttribute("closing", "");
 
     openVersionContainer.addEventListener(
