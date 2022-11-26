@@ -1,3 +1,5 @@
-import { } from './footer/footerEventListeners.js'
-import { } from './menu/menuEventListeners.js'
-import { } from "./steps/stepOne.js"
+import { } from './utils/optionImages.js'
+import { } from './utils/functions.js'
+import { } from './view/footer.js'
+import { } from './view/mainMenu.js'
+import { } from './view/choiceBoards.js'

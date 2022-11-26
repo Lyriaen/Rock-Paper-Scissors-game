@@ -1,12 +1,13 @@
-import { createElement } from "../utils/functions.js"
+import { createElement } from '../utils/functions.js'
 
 export const createOptionElement = (option, className, position) => {
+
     const iconElement = createElement('img', ['option-icon'])
     iconElement.src = `./src/images/icon-${option}.svg`
 
+
     const iconContainerElement = createElement('div', ['iconContainer'])
     iconContainerElement.append(iconElement)
-
     const optionElement = createElement('div', [`option-${option}`, 'option', className])
     if (position) {
         optionElement.style.top = `${position?.top}%`

@@ -1,10 +1,3 @@
-export const clearMainWindow = () => {
-    const mainElement = document.querySelector('.main')
-    while (mainElement.lastElementChild) {
-        mainElement.removeChild(mainElement.lastElementChild)
-    }
-}
-
 export const getStartingPoints = () => {
     const pointsElement = document.querySelector('.header_score-container_score')
     const startingPoints = localStorage.getItem('points') ? localStorage.getItem('points') : 0
@@ -23,4 +16,15 @@ export const createElement = (tag, classesArray, textContent, id) => {
         newElement.id = id
     }
     return newElement
+}
+
+export const removeResultBoard = () => {
+    const boardsContainer = document.querySelector( '.boards-container' )
+    boardsContainer && document.querySelector( 'main' ).removeChild( boardsContainer )
+}
+
+export const showChoiceBoard = (versionName) => {
+    const versionContainerElement = document.querySelector( `.main_${ versionName }VersionContainer ` )
+    versionContainerElement.setAttribute( "open" , "" );
+    versionContainerElement.classList.remove( 'hide' );
 }

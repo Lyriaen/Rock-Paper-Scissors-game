@@ -1,10 +1,8 @@
-import { clearMainWindow, createElement } from "../utils/functions.js"
-import { createChoiceBoard } from "./utils.js"
-import { basicVersion, bonusVersion } from "../utils/versions.js"
-import { createStepOneView } from "./stepOne.js"
+import { createElement , removeResultBoard , showChoiceBoard } from '../utils/functions.js';
+import { createChoiceBoard } from '../steps/utils.js'
+import { basicVersion, bonusVersion } from '../utils/versions.js'
 
-export const createStepTwoView = (userChoice, computerChoice, versionName) => {
-    clearMainWindow()
+export const createResultBoard = ( userChoice, computerChoice, versionName) => {
     const mainElement = document.querySelector('.main')
     const boardsContainerElement = createElement('div', ['boards-container'])
 
@@ -25,8 +23,7 @@ export const createStepTwoView = (userChoice, computerChoice, versionName) => {
 }
 
 const addResultBoard = (userChoice, computerChoice, versionName) => {
-    const getResult = getResultFunctionBasedOnVersion(versionName)
-    const result = getResult(userChoice, computerChoice)
+    const result = getResult(userChoice, computerChoice, versionName)
 
     const resultContainer = document.querySelector('.resultContainer')
     resultContainer.classList.add('resultContainer-show')
@@ -45,6 +42,24 @@ const addResultBoard = (userChoice, computerChoice, versionName) => {
 
     resultContainer.append(playAgainButton)
 
+    setWinner(result)
+}
+
+const getResult = (userChoice, computerChoice, versionName) => {
+    if (versionName === 'basic') {
+        return basicVersion.getResult(userChoice, computerChoice)
+    }
+    if (versionName === 'bonus') {
+        return bonusVersion.getResult(userChoice, computerChoice)
+    }
+}
+
+const startNewGame = (versionName) => {
+    removeResultBoard();
+    showChoiceBoard(versionName);
+}
+
+const setWinner = (result) => {
     const pointsElement = document.querySelector('.header_score-container_score')
     let points = +pointsElement.textContent
     setTimeout(() => {
@@ -58,26 +73,8 @@ const addResultBoard = (userChoice, computerChoice, versionName) => {
             computerChoice.classList.add('winner')
             --points
         }
-        localStorage.setItem('points', points)
-        pointsElement.textContent = points
+        localStorage.setItem('points', points.toString())
+        pointsElement.textContent = points.toString()
 
     }, 1000)
-}
-
-const getResultFunctionBasedOnVersion = (versionName) => {
-    if (versionName === 'basic') {
-        return basicVersion.getResult
-    }
-    if (versionName === 'bonus') {
-        return bonusVersion.getResult
-    }
-}
-
-const startNewGame = (versionName) => {
-    if (versionName === 'basic') {
-        createStepOneView(basicVersion)
-    }
-    if (versionName === 'bonus') {
-        createStepOneView(bonusVersion)
-    }
 }
