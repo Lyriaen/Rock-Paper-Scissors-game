@@ -1,4 +1,4 @@
-import { createElement } from "../utils/functions.js"
+import { createElement } from '../utils/functions.js'
 
 export const createOptionElement = (option, className, position) => {
 

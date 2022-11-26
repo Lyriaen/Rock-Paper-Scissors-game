@@ -5,21 +5,21 @@ const backToMenuButton = document.getElementById('backToMenuButton');
 const backToMenu = () => {
     hideFooter();
     hideChoiceBoard();
-    removeResultBoard()
+    removeResultBoard();
     showMainMenu();
 }
 
 const hideFooter = () => {
-    document.querySelector('.footer').classList.add('hide')
+    document.querySelector('.footer').classList.add('hide');
 }
 
 const hideChoiceBoard = () => {
-    const openVersionContainer = document.querySelector('.open')
-    openVersionContainer?.setAttribute("closing", "");
+    const openVersionContainer = document.querySelector('.open');
+    openVersionContainer?.setAttribute('closing', '');
     openVersionContainer?.addEventListener(
-        "animationend",
+        'animationend',
         () => {
-            openVersionContainer.removeAttribute("closing");
+            openVersionContainer.removeAttribute('closing');
             openVersionContainer.classList.remove('open')
             openVersionContainer.classList.add('hide')
         },
@@ -28,7 +28,7 @@ const hideChoiceBoard = () => {
 }
 
 const showMainMenu = () => {
-    document.querySelector('.main_menu').classList.remove('hide')
+    document.querySelector('.main_menu').classList.remove('hide');
 }
 
-backToMenuButton.addEventListener('click', backToMenu)
+backToMenuButton.addEventListener('click', backToMenu);

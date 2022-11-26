@@ -1,8 +1,8 @@
 import { createElement , removeResultBoard , showChoiceBoard } from '../utils/functions.js';
-import { createChoiceBoard } from "./utils.js"
-import { basicVersion, bonusVersion } from "../utils/versions.js"
+import { createChoiceBoard } from '../steps/utils.js'
+import { basicVersion, bonusVersion } from '../utils/versions.js'
 
-export const createStepTwoView = (userChoice, computerChoice, versionName) => {
+export const createResultBoard = ( userChoice, computerChoice, versionName) => {
     const mainElement = document.querySelector('.main')
     const boardsContainerElement = createElement('div', ['boards-container'])
 
