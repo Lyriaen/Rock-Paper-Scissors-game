@@ -11,30 +11,51 @@
 </head>
 
 <body>
-  <header class='header'>
-    <img class='header_logo' src='./src/images/logo.svg' alt='rock, paper, scissors game' />
-    <div class='header_score-container'>
-      <h2 class='header_score-container_heading'>Score</h2>
-      <p class='header_score-container_score'>-</p>
-    </div>
-  </header>
-  <main class='main'>
-    <section class='main_menu'>
-      <div class='main_menu_version'>
-        <button class='button primary-button menu-button' id='startBasicVersionButton'>Play basic version
-        </button>
-        <button class='button secondary-button' id='basicVersionRulesButton'>Rules</button>
-      </div>
-      <div class='main_menu_version'>
-        <button class='button primary-button menu-button' id='startBonusVersionButton'>Play bonus version</button>
-        <button class='button secondary-button' id='bonusVersionRulesButton'>Rules</button>
-      </div>
+    <header class='header'>
+        <img class='header_logo' src='./src/images/logo.svg' alt='rock, paper, scissors game' />
+        <div class='header_score-container'>
+            <h2 class='header_score-container_heading'>Score</h2>
+            <p class='header_score-container_score'>-</p>
+        </div>
+    </header>
+    <main class='main'>
+        <section class='main_menu'>
+            <div class='main_menu_version'>
+                <button class='button primary-button menu-button' id='startBasicVersionButton'>Play basic version</button>
+                <button class='button secondary-button' id='basicVersionRulesButton'>Rules</button>
+            </div>
+            <div class='main_menu_version'>
+                <button class='button primary-button menu-button' id='startBonusVersionButton'>Play bonus version</button>
+                <button class='button secondary-button' id='bonusVersionRulesButton'>Rules</button>
+            </div>
+        </section>
+    </main>
+    <footer class='footer hide'>
+        <button class='button primary-button menu-button' id='backToMenuButton'>Menu</button>
+        <button class='button secondary-button'>Rules</button>
+    </footer>
+    <section class='rules basic-rules hide'>
+        <div class='rules-window'>
+            <header class='rules-window-header'>
+                <h2>rules</h2>
+                <button class='rules-window-close-button'>
+                    <img src='./src/images/icon-close.svg' alt='close'/>
+                </button>
+            </header>
+            <img src='./src/images/image-rules.svg' loading="lazy" alt=''/>
+        </div>
     </section>
-  </main>
-  <footer class='footer hide'>
-    <button class='button primary-button menu-button' id='backToMenuButton'>Menu</button>
-    <button class='button secondary-button'>Rules</button>
-  </footer>
+    <section class='rules bonus-rules hide'>
+        <div class='rules-window'>
+            <header class='rules-window-header'>
+                <h2>rules</h2>
+                <button class='rules-window-close-button'>
+                    <img src='./src/images/icon-close.svg' alt='close'/>
+                </button>
+            </header>
+            <img src='./src/images/image-rules-bonus.svg' loading="lazy" alt=''/>
+        </div>
+    </section>
 </body>
 
 <script src='./src/script/index.js' type='module'></script>
