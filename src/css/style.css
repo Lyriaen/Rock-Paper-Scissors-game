@@ -270,7 +270,7 @@ body {
     justify-content: center;
     align-items: center;
     /*transform: translateY(-150%);*/
-
+    z-index: 2;
 }
 
 .rules-window{

@@ -1,5 +1,5 @@
 import { removeResultBoard } from '../utils/functions.js';
-
+import { viewRules } from './mainMenu.js'
 const backToMenuButton = document.getElementById('backToMenuButton');
 
 const backToMenu = () => {
@@ -30,5 +30,8 @@ const hideChoiceBoard = () => {
 const showMainMenu = () => {
     document.querySelector('.main_menu').classList.remove('hide');
 }
+
+const sideRulesButton = document.querySelector('.rules-side-button')
+sideRulesButton.addEventListener('click', () => viewRules(sideRulesButton?.getAttribute('data-version')))
 
 backToMenuButton.addEventListener('click', backToMenu);

@@ -6,6 +6,7 @@ import { createElement } from '../utils/functions.js'
 export const createChoiceBoard = (version) => {
     showFooter();
     hideMainMenu();
+    document.querySelector('.rules-side-button').setAttribute('data-version', version.versionName)
     createOptionsElement(version);
 }
 

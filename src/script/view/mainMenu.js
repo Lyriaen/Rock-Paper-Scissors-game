@@ -17,7 +17,7 @@ startBonusVersionButton.addEventListener('click', () => createChoiceBoard( bonus
 basicVersionRulesButton.addEventListener('click', () => viewRules('basic'))
 bonusVersionRulesButton.addEventListener('click', () => viewRules('bonus'))
 
-const viewRules = (version) => {
+export const viewRules = (version) => {
     const rulesContainer = document.querySelector(`.${version}-rules`)
     rulesContainer.setAttribute('open', '');
     rulesContainer.classList.remove('hide');
