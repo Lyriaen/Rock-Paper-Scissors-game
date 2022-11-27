@@ -29,6 +29,7 @@ body {
 
 .header {
     margin: 20px auto 0;
+    height: 155px;
     padding: 20px;
     border: 3px solid var(--header-outline-color);
     border-radius: 15px;
@@ -36,6 +37,25 @@ body {
     align-content: center;
     justify-content: space-between;
     width: 800px;
+    overflow: hidden;
+}
+
+.header_logo-slider{
+    position:relative;
+}
+.header_logo-basic, .header_logo-bonus{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 1s ease;
+}
+
+.header_logo-basic.hide{
+    transform: translateY(-170%);
+}
+
+.header_logo-bonus.hide{
+    transform: translateY(70%);
 }
 
 .header_score-container {
@@ -298,4 +318,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.rules-window-close-button:hover{
+    transform: scale(1.2);
 }

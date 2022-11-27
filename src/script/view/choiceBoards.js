@@ -6,6 +6,21 @@ import { createElement } from '../utils/functions.js'
 export const createChoiceBoard = (version) => {
     showFooter();
     hideMainMenu();
+    const logo = document.querySelector(`.header_logo-${version.versionName}`)
+    console.log(logo)
+    if (logo.classList.contains('hide')) {
+        logo.classList.remove('hide')
+        if(version.versionName === 'basic'){
+            console.log('basic')
+            console.log(document.querySelector('.header_logo-bonus'))
+            document.querySelector('.header_logo-bonus').classList.add('hide')
+        }
+        if(version.versionName === 'bonus'){
+            console.log('bonus')
+            console.log(document.querySelector('.header_logo-basic'))
+            document.querySelector('.header_logo-basic').classList.add('hide')
+        }
+    }
     document.querySelector('.rules-side-button').setAttribute('data-version', version.versionName)
     createOptionsElement(version);
 }
