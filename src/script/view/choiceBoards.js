@@ -1,27 +1,22 @@
-import { createResultBoard } from './resultBoard.js'
-import { createOptionElement } from '../steps/utils.js'
-import { createElement } from '../utils/functions.js'
-
+import { createElement } from '../utils/createRemoveElements.js';
+import { createOptionElement } from '../utils/createRemoveElements.js';
+import { hideBasicLogo , hideBonusLogo , hideMainMenu , showFooter , showLogo } from '../utils/showHideFunctions.js';
+import { createResultBoard } from './resultBoard.js';
 
 export const createChoiceBoard = (version) => {
     showFooter();
     hideMainMenu();
-    const logo = document.querySelector(`.header_logo-${version.versionName}`)
-    console.log(logo)
+    const logo = document.querySelector(`.header_logo-${version.versionName}`);
     if (logo.classList.contains('hide')) {
-        logo.classList.remove('hide')
+        showLogo(logo);
         if(version.versionName === 'basic'){
-            console.log('basic')
-            console.log(document.querySelector('.header_logo-bonus'))
-            document.querySelector('.header_logo-bonus').classList.add('hide')
+            hideBonusLogo();
         }
         if(version.versionName === 'bonus'){
-            console.log('bonus')
-            console.log(document.querySelector('.header_logo-basic'))
-            document.querySelector('.header_logo-basic').classList.add('hide')
+            hideBasicLogo();
         }
     }
-    document.querySelector('.rules-side-button').setAttribute('data-version', version.versionName)
+    document.querySelector('.rules-side-button').setAttribute('data-version', version.versionName);
     createOptionsElement(version);
 }
 
@@ -33,7 +28,7 @@ const createOptionsElement = ({ versionName, options, backgroundImageName }) => 
         const backgroundImage = createElement('img',
                                               ['main_optionsContainer_backgroundImage', classDependsOnVersion(versionName)]
         );
-        backgroundImage.src = `./src/images/${backgroundImageName}`
+        backgroundImage.src = `./src/images/${backgroundImageName}`;
         optionsContainerElement.append(backgroundImage);
         for (const [option, position] of Object.entries(options)) {
             const newOptionElement = createOptionElement(option, classDependsOnVersion(versionName), position);
@@ -65,15 +60,6 @@ const createOptionsElement = ({ versionName, options, backgroundImageName }) => 
     );
 }
 
-
-const showFooter = () => {
-    document.querySelector('.footer').classList.remove('hide');
-}
-
-const hideMainMenu = () => {
-    document.querySelector('.main_menu').classList.add('hide');
-}
-
 const classDependsOnVersion = (version) => {
     if (version === 'basic') {
         return 'basic-version'
@@ -102,11 +88,8 @@ const goToStepTwo = (userChoice, options, versionName) => {
         },
         { once: true }
     );
-
 }
 
 const randomComputerChoice = (options) => {
-    const computerChoiceIndex = Math.floor(Math.random() * options.length);
-    const computerChoice = options[computerChoiceIndex];
-    return computerChoice;
+    return options[ Math.floor( Math.random() * options.length ) ];
 }

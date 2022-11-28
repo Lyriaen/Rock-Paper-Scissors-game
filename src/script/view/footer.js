@@ -1,5 +1,6 @@
-import { removeResultBoard } from '../utils/functions.js';
-import { viewRules } from './mainMenu.js'
+import { removeResultBoard } from '../utils/createRemoveElements.js';
+import { viewRules } from './mainMenu.js';
+
 const backToMenuButton = document.getElementById('backToMenuButton');
 
 const backToMenu = () => {

@@ -1,6 +1,6 @@
-import { createElement , removeResultBoard , showChoiceBoard } from '../utils/functions.js';
-import { createChoiceBoard } from '../steps/utils.js'
-import { basicVersion, bonusVersion } from '../utils/versions.js'
+import { showChoiceBoard } from '../utils/showHideFunctions.js';
+import { createChoiceBoard , createElement , removeResultBoard } from '../utils/createRemoveElements.js';
+import { basicVersion, bonusVersion } from '../utils/versions.js';
 
 export const createResultBoard = ( userChoice, computerChoice, versionName) => {
     const mainElement = document.querySelector('.main')
