@@ -32,7 +32,6 @@ export const basicVersion = {
     }
 }
 
-
 export const bonusVersion = {
     versionName: 'bonus',
     rules: 'image-rules-bonus.svg',
@@ -61,27 +60,27 @@ export const bonusVersion = {
     backgroundImageName: 'bg-pentagon.svg',
     getResult: (userChoice, computerChoice) => {
         if (userChoice === computerChoice) {
-            return 'draw'
+            return 'draw';
         }
         if (userChoice === 'scissors') {
             return computerChoice === 'paper' || computerChoice === 'lizard' ?
-                'win' : 'lose'
+                'win' : 'lose';
         }
         if (userChoice === 'paper') {
             return computerChoice === 'rock' || computerChoice === 'spock' ?
-                'win' : 'lose'
+                'win' : 'lose';
         }
         if (userChoice === 'rock') {
             return computerChoice === 'lizard' || computerChoice === 'scissors' ?
-                'win' : 'lose'
+                'win' : 'lose';
         }
         if (userChoice === 'lizard') {
             return computerChoice === 'spock' || computerChoice === 'paper' ?
-                'win' : 'lose'
+                'win' : 'lose';
         }
         if (userChoice === 'spock') {
             return computerChoice === 'rock' || computerChoice === 'scissors' ?
-                'win' : 'lose'
+                'win' : 'lose';
         }
     }
 }

@@ -1,6 +1,6 @@
-import { basicVersion, bonusVersion } from '../utils/versions.js'
-import { createChoiceBoard } from './choiceBoards.js'
-import { getStartingPoints } from '../utils/functions.js'
+import { basicVersion, bonusVersion } from '../utils/versions.js';
+import { createChoiceBoard } from './choiceBoards.js';
+import { getStartingPoints } from '../utils/showHideFunctions.js';
 
 
 getStartingPoints();
@@ -45,5 +45,5 @@ const closeRules = () => {
         { once: true }
     );
 }
-const closeRulesButtons = document.querySelectorAll('.rules-window-close-button')
-closeRulesButtons.forEach(button => button.addEventListener('click', closeRules))
+const closeRulesButtons = document.querySelectorAll('.rules-window-close-button');
+closeRulesButtons.forEach(button => button.addEventListener('click', closeRules));
