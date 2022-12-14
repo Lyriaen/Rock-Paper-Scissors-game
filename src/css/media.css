@@ -1,0 +1,35 @@
+@media (max-width: 900px){
+    .header {
+        width: 90%;
+    }
+
+    .boards-container{
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: auto 200px;
+    }
+
+    .resultContainer{
+        order: 2;
+        grid-column: span 2;
+        margin: 0 auto;
+    }
+
+    .rules-window{
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        justify-items: center;
+        grid-template-areas:
+            "header "
+            "img    "
+            "button ";
+    }
+
+    .rules-window-close-button{
+        justify-self: center;
+    }
+
+    .rules-img{
+        width: 80%;
+    }
+}

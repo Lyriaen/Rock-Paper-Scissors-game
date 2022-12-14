@@ -40,6 +40,9 @@ body {
     overflow: hidden;
 }
 
+
+
+
 .header_logo-slider{
     position:relative;
 }
@@ -103,8 +106,10 @@ body {
 }
 
 .boards-container {
-    display: flex;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 40px;
+    justify-content: center;
     align-items: center;
     position: absolute;
 }
@@ -330,21 +335,29 @@ body {
 
 .rules-window{
     padding: 20px;
+    row-gap: 20px;
     border-radius: 20px;
     background-color: var(--light-background);
     box-shadow: 0 0 0 100vw rgb(0 0 0 / .5);
+    display: grid;
+    grid-template-areas:
+        "header  button"
+        "img    img";
+
 }
+
+/*.rules-window-header{*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    margin-bottom: 30px;*/
+/*}*/
 
 .rules-window-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.rules-window-header h2{
     text-transform: uppercase;
     color: var(--dark-text-color);
+    grid-area: header;
+    font-size: 36px;
 }
 
 .rules-window-close-button{
@@ -353,8 +366,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    grid-area: button;
+    justify-self: end;
+}
+
+.rules-img{
+    grid-area: img;
+    min-width: 500px;
 }
 
 .rules-window-close-button:hover{
     transform: scale(1.2);
 }
+.rules-window-close-button img{
+    width: 36px;
+}
+
