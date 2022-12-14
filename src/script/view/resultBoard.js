@@ -3,6 +3,10 @@ import { createChoiceBoard , createElement , removeResultBoard } from '../utils/
 import { basicVersion, bonusVersion } from '../utils/versions.js';
 
 export const createResultBoard = ( userChoice, computerChoice, versionName) => {
+    //prevent double render if user click option many times
+    if(document.querySelector('.boards-container')){
+        return;
+    }
     const mainElement = document.querySelector('.main')
     const boardsContainerElement = createElement('div', ['boards-container'])
 
