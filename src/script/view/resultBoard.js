@@ -9,11 +9,12 @@ export const createResultBoard = ( userChoice, computerChoice, versionName) => {
     }
     const mainElement = document.querySelector('.main')
     const boardsContainerElement = createElement('div', ['boards-container'])
+    boardsContainerElement?.setAttribute('open', '')
 
     mainElement.append(boardsContainerElement)
     const userChoiceBoard = createChoiceBoard(userChoice, 'user')
     boardsContainerElement.append(userChoiceBoard)
-    const resultContainer = createElement('div', ['resultContainer', 'resultContainer-hide'])
+    const resultContainer = createElement('div', ['resultContainer'])
 
     const computerChoiceBoard = createChoiceBoard(computerChoice)
     boardsContainerElement.append(computerChoiceBoard)
@@ -59,8 +60,17 @@ const getResult = (userChoice, computerChoice, versionName) => {
 }
 
 const startNewGame = (versionName) => {
-    removeResultBoard();
-    showChoiceBoard(versionName);
+    const resultContainer = document.querySelector('.resultContainer')
+    const boardsContainerElement = document.querySelector('.boards-container')
+    boardsContainerElement?.removeAttribute('open')
+    resultContainer.classList.remove('resultContainer-show')
+    resultContainer.classList.add('resultContainer-hide')
+    boardsContainerElement?.setAttribute('closing', '')
+    resultContainer.addEventListener('animationend', () => {
+            removeResultBoard();
+            showChoiceBoard(versionName);
+    } , {once: true})
+
 }
 
 const setWinner = (result) => {
