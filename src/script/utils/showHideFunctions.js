@@ -14,13 +14,10 @@ export const showChoiceBoard = (versionName) => {
 }
 
 export const showFooter = () => {
-    console.log('showFooter')
     document.querySelector('.footer').classList.remove('hide');
-    console.log(document.querySelector('.footer'))
 }
 
 export const showMainMenu = () => {
-    console.log('showMainMenu')
     document.querySelector('.main_menu').classList.remove('hide');
 }
 
@@ -39,7 +36,6 @@ export const hideFooter = () => {
 }
 
 export const hideChoiceBoard = () => {
-    console.log('hideChoiceBoard')
     const openVersionContainer = document.querySelector('.open');
     openVersionContainer?.setAttribute('closing', '');
     openVersionContainer?.addEventListener(
